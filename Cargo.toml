@@ -1,9 +1,12 @@
 [package]
-name = "dotpm"
+name = "dlta"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-libdotpm = "*"
+libdlta = { git = "https://git.tar.black/ikeda/libdlta" }
+reqwest = { version = "0.11.7", default-features = false, features = ["blocking", "default-tls"] }
+toml = "0.5.8"
+serde = { version = "1.0.104", default-features = false, features = ["derive"] }

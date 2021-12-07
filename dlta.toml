@@ -3,11 +3,9 @@ fancy_output = true
 enforce_tls = true
 
 [repositories]
-local = [  { name = "dev", location = "/mnt/test" },
-           { name = "66-test", location = "/mnt/test2" } 
+local = [  { name = "test-repo", location = "/mnt/test-repo" }
         ]
 
-remote = [ { name = "main", locations = [ "https://test", "https://test2" ] },
-           { name = "community", locations = [ "https://test3" ] } 
-        ]
+remote = [  
+         ]
 

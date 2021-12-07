@@ -8,5 +8,5 @@ edition = "2021"
 [dependencies]
 libdlta = { git = "https://git.tar.black/ikeda/libdlta" }
 reqwest = { version = "0.11.7", default-features = false, features = ["blocking", "default-tls"] }
-toml = "0.5.8"
+toml = { version = "0.5.8", default-features = false }
 serde = { version = "1.0.104", default-features = false, features = ["derive"] }

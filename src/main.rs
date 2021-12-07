@@ -23,6 +23,7 @@ fn main() {
     });
 
     let repos = &config.repositories;
+    #[allow(unused_variables)]
     let settings = &config.settings;
 
     match args[0].as_str() {

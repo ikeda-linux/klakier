@@ -1,0 +1,18 @@
+[settings]
+fancy_output = true
+enforce_tls = true
+
+[[repos.local]]
+name = "test-repo"
+location = "/mnt/test-repo"
+
+[[repos.local]]
+name = "personal-packages"
+location = "/somewhere/in/the/filesystem"
+
+[[repos.remote]]
+name = "core-x86_64"
+locations = [
+    "https://repo.ikedalinux.org/core-x86_64",
+    "http://mirror.somesite.org/ikeda-linux/core-x86_64"
+]

@@ -3,9 +3,23 @@ fancy_output = true
 enforce_tls = true
 
 [repositories]
-local = [  { name = "test-repo", location = "/mnt/test-repo" }
-        ]
+local = [  
+  { 
+    name = "test-repo", 
+    location = "/mnt/test-repo" 
+  },
+  {
+    name = "something-else",
+    location = "/mnt/se-repo"
+  }
+]
 
-remote = [  
-         ]
-
+remote = [
+  {
+    name = "core-x86_64",
+    locations = [
+      "repo.ikedalinux.org/core-x86_64",
+      "mirror.somesite.org/ikeda/core-x86_64"
+    ]
+  }
+]

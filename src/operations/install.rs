@@ -9,8 +9,8 @@ use crate::structs::ConfigFile;
 
 pub fn install(packages: Vec<String>) {
     let config =
-        toml::from_str::<ConfigFile>(&fs::read_to_string("/etc/dlta.toml").unwrap_or_else(|_| {
-            eprintln!("Could not find /etc/dlta.toml");
+        toml::from_str::<ConfigFile>(&fs::read_to_string("/etc/klakier.toml").unwrap_or_else(|_| {
+            eprintln!("Could not find /etc/klakier.toml");
             std::process::exit(1);
         }))
         .unwrap_or_else(|err| {
@@ -18,7 +18,6 @@ pub fn install(packages: Vec<String>) {
             std::process::exit(1);
         });
 
-    let repos = &config.repositories;
     #[allow(unused_variables)]
     let settings = &config.settings;
 
@@ -27,7 +26,7 @@ pub fn install(packages: Vec<String>) {
     let mut not_found: Vec<String> = Vec::new();
 
     for package in packages.iter() {
-        for repo in &repos.local {
+        for repo in &config.repositories.local {
             // breaks if package already found
             if Path::new(&format!("/tmp/libdlta/pkg/{}.tar.zst", package)).exists() {
                 break;
@@ -88,7 +87,7 @@ pub fn install(packages: Vec<String>) {
                 }
             }
         }
-        for repo in &repos.remote {
+        for repo in &config.repositories.remote {
             // breaks if package already found
             if Path::new(&format!("/tmp/libdlta/pkg/{}.tar.zst", package)).exists() {
                 break;

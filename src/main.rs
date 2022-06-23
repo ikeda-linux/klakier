@@ -29,19 +29,6 @@ fn main() {
     // sets the 0th argument (e.g. dlta **install**) as "oper"
     let oper = args[0].clone();
 
-    let config =
-        toml::from_str::<ConfigFile>(&fs::read_to_string("/etc/dlta.toml").unwrap_or_else(|_| {
-            eprintln!("Could not find /etc/dlta.toml");
-            std::process::exit(1);
-        }))
-        .unwrap_or_else(|err| {
-            eprintln!("Problem parsing config file: {}", err);
-            std::process::exit(1);
-        });
-
-    #[allow(unused_variables)]
-    let settings = &config.settings;
-
     match oper.as_str() {
         "install" => {
             operations::install(packages);
@@ -73,9 +60,19 @@ fn main() {
         }
         "debug" => {
             if flags.contains(&"-r".to_string()) {
-                println!("{:?}", config);
-            } else {
+                let config =
+                    toml::from_str::<ConfigFile>(&fs::read_to_string("/etc/klakier.toml").unwrap_or_else(|_| {
+                        eprintln!("Could not find /etc/klakier.toml");
+                        std::process::exit(1);
+                    }))
+                        .unwrap_or_else(|err| {
+                            eprintln!("Problem parsing config file: {}", err);
+                            std::process::exit(1);
+                        });
                 println!("{:#?}", config);
+            } else {
+                let config: toml::Value = toml::from_str(&fs::read_to_string("klakier.toml").unwrap()).unwrap();
+                println!("{:#?}", config)
             }
             std::process::exit(0);
         }

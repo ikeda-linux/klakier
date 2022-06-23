@@ -1,12 +1,12 @@
 [package]
-name = "dlta"
+name = "klakier"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-libdlta = { git = "https://git.tar.black/ikeda/libdlta" }
+libdlta = { git = "https://github.com/ikeda-linux/libklakier" }
 reqwest = { version = "0.11.7", default-features = false, features = ["blocking", "default-tls"] }
 toml = { version = "0.5.8", default-features = false }
 serde = { version = "1.0.104", default-features = false, features = ["derive"] }

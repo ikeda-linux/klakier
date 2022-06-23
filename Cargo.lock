@@ -114,17 +114,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "dlta"
-version = "0.1.0"
-dependencies = [
- "libdlta",
- "reqwest",
- "semver",
- "serde",
- "toml",
-]
-
-[[package]]
 name = "encoding_rs"
 version = "0.8.30"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -426,6 +415,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "klakier"
+version = "0.1.0"
+dependencies = [
+ "libdlta",
+ "reqwest",
+ "semver",
+ "serde",
+ "toml",
+]
+
+[[package]]
 name = "lazy_static"
 version = "1.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -440,7 +440,7 @@ checksum = "f98a04dce437184842841303488f70d0188c5f51437d2a834dc097eafa909a01"
 [[package]]
 name = "libdlta"
 version = "0.1.0"
-source = "git+https://git.tar.black/ikeda/libdlta#220546c9f5c2a82abf81e8bf3f7312779aa5bc5d"
+source = "git+https://github.com/ikeda-linux/libklakier#4730e17a25e0afe3b623ccb0e148cf0a1b8398e6"
 dependencies = [
  "ansi_term",
  "blake2",
